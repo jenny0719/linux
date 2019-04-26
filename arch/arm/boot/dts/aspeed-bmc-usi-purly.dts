@@ -15,6 +15,196 @@
 	memory {
 		reg = <0x80000000 0x20000000>;
 	};
+	
+	leds {
+		compatible = "gpio-leds";
+
+		m-cpu000-led {
+			gpios = <&pca0 0 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu001-led {
+			gpios = <&pca0 1 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu010-led {
+			gpios = <&pca0 2 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu011-led {
+			gpios = <&pca0 3 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu020-led {
+			gpios = <&pca0 4 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu021-led {
+			gpios = <&pca0 5 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu030-led {
+			gpios = <&pca0 6 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu031-led {
+			gpios = <&pca0 7 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu040-led {
+			gpios = <&pca0 8 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu041-led {
+			gpios = <&pca0 9 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu050-led {
+			gpios = <&pca0 10 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu051-led {
+			gpios = <&pca0 11 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu100-led {
+			gpios = <&pca0 12 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu101-led {
+			gpios = <&pca0 13 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu110-led {
+			gpios = <&pca0 14 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu111-led {
+			gpios = <&pca0 15 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu120-led {
+			gpios = <&pca1 0 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu121-led {
+			gpios = <&pca1 1 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu130-led {
+			gpios = <&pca1 2 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu131-led {
+			gpios = <&pca1 3 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu140-led {
+			gpios = <&pca1 4 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu141-led {
+			gpios = <&pca1 5 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu150-led {
+			gpios = <&pca1 6 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		m-cpu151-led {
+			gpios = <&pca1 7 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		1u-fan0-led {
+			gpios = <&pca2 0 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		1u-fan1-led {
+			gpios = <&pca2 1 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		1u-fan2-led {
+			gpios = <&pca2 2 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		1u-fan3-led {
+			gpios = <&pca2 3 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+		
+		1u-fan4-led {
+			gpios = <&pca2 4 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+		
+		1u-fan5-led {
+			gpios = <&pca2 5 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+		
+		1u-fan6-led {
+			gpios = <&pca2 6 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+		
+		2u-fan0-led {
+			gpios = <&pca2 8 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+		
+		2u-fan1-led {
+			gpios = <&pca2 9 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+		
+		2u-fan2-led {
+			gpios = <&pca2 10 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+
+		2u-fan3-led {
+			gpios = <&pca2 11 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+		
+		2u-fan4-led {
+			gpios = <&pca2 12 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+		
+		2u-fan5-led {
+			gpios = <&pca2 13 GPIO_ACTIVE_LOW>;
+			default-state = "off";
+		};
+		
+	};	
 
 
 };
@@ -69,20 +259,20 @@
 
 	pca0: pca9555@21 {
 		compatible = "nxp,pca9555";
-		#address-cells = <1>;
-		#size-cells = <0>;
+		gpio-controller;
+		#gpio-cells = <2>;
 		reg = <0x21>;
 	};
 	pca1: pca9557@1e {
 		compatible = "nxp,pca9557";
-		#address-cells = <1>;
-		#size-cells = <0>;
+		gpio-controller;
+		#gpio-cells = <2>;
 		reg = <0x1e>;
 	};
 	pca2: pca9555@22 {
 		compatible = "nxp,pca9555";
-		#address-cells = <1>;
-		#size-cells = <0>;
+		gpio-controller;
+		#gpio-cells = <2>;
 		reg = <0x22>;
 	};
 	tmp75@4e {
