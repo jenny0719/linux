@@ -63,7 +63,7 @@
 	status = "okay";
 
 	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_rgmii1_default &pinctrl_mdio1_default>;
+	pinctrl-0 = <&pinctrl_rgmii1_default>;
 	use-ncsi;
 };
 
@@ -72,7 +72,6 @@
 
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_rgmii2_default &pinctrl_mdio2_default>;
-	use-ncsi;
 };
 
 &i2c0 {
