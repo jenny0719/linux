@@ -18,7 +18,10 @@
 	
 	leds {
 		compatible = "gpio-leds";
-
+		heartbeat {
+            gpios = <&gpio ASPEED_GPIO(J, 1) GPIO_ACTIVE_HIGH>;
+            linux,default-trigger = "heartbeat";
+        };
 		m-cpu000-led {
 			gpios = <&pca0 0 GPIO_ACTIVE_LOW>;
 			default-state = "off";
@@ -79,9 +82,11 @@
 
 	pca0: pca9555@21 {
 		compatible = "nxp,pca9555";
+		reg = <0x21>;
+		
 		gpio-controller;
 		#gpio-cells = <2>;
-		reg = <0x21>;
+		
 	};
 	pca1: pca9557@1e {
 		compatible = "nxp,pca9557";
